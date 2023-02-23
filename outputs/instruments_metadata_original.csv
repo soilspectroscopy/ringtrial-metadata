@@ -1,0 +1,21 @@
+code,manufacturer,model,year_built,beamsplitter,detector,mirror_material,accessory,background,sample_presentation,neat_mulled,purged
+1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+2,Bruker,Alpha II,2020,KBr,DLaTGS,Gold,Bruker Alpha QuickSnap,Roughened Gold,Levelled,neat,no
+3,Bruker,Vertex 70,2013,KBr,RT-DLaTGS,not known,Bruker HTS-XT,Roughened Gold,Levelled,neat,NA
+4,PerkinElmer,Spectrum 100,2010,OptKBr (PE trade name for a Ge-coated KBr beam splitter),MIR TGS (PE trade name for a DTGS detector),"Not gold, but not sure if aluminum",Pike AutoDiff,KBr,Levelled,NA,NA
+5,Agilent,4300 Handheld FTIR,2014,ZnSe,DGTS,Aluminium,Handheld FTIR,Roughened Aluminium,Pressed / levelled,NA,no
+6,Bruker,Alpha I,2012,ZnSe,DLaTGS,Gold,Bruker Alpha QuickSnap,Roughened Gold,Pressed / levelled,neat,NA
+7,Bruker,Alpha I,2013,ZnSe,RT-DLaTGS,Gold,Bruker Alpha QuickSnap,Roughened Gold,Levelled,neat,no
+8,Bruker,Vertex 70,2015,widerange,MIR detector,Gold,Pike AutoDiff,Mirror,Levelled,neat,yes
+9,Thermo Fisher,Nicolet iS20,2020,KBr,MCT,Aluminium,Collector II Diffuse Reflectance Accessory,Mirror,Pressed / levelled,neat,yes (dried air)
+10,Bruker,Vertex 70,2017,KBr,MCT,Gold,Bruker HTS-XT,Roughened Gold,Pressed,NA,NA
+11,Bruker,Alpha II,2021,KBr,DLaTGS,Gold,Bruker Front-facing accessory,Roughened Gold,Pressed,neat,no
+12,Thermo Fisher,Nicolet iS50,2018,KBr,DTGS,Gold,"Pike X, Y Autosampler",KBr,Levelled,NA,no
+13,PerkinElmer,FT-IR II,2018,ZnSe,DLaTGS,Aluminium,DRIFT,Mirror,Levelled,neat,no
+14,Thermo Fisher,Nicolet iS50,2015,"XT-KBr / Ge coated beamsplitter (11,000-375 cm-1)",DTGS,Gold,"Pike X,Y Autosampler",KBr,Levelled,neat,no
+15,Bruker,Alpha II,2019,ZnSe,RT-DLaTGS,Gold,Bruker Alpha II QuickSnap DRIFT,Roughened Gold,Levelled,neat,no
+16,Bruker,Vertex 70,NA,KBr,MCT,NA,Bruker HTS-XT,Roughened Aluminium,Pressed,neat,no
+17,Bruker,Invenio-R,2022,KBr,DLaTGS,Gold,Bruker HTS-XT,Roughened Gold,Pressed,NA,NA
+18,Bruker,Invenio-S,2020,KBr,MCT,Gold,Bruker HTS-XT,Roughened Gold,Pressed,NA,yes
+19,Bruker,Tensor II,2016,KBr,DLaTGS,Gold,HTS-XT,Roughened gold,Levelled,NA,yes
+20,Bruker,Alpha,NA,ZnSe or HeNe or KBr?,RT-DLaTGS ZnSe,NA,NA,Roughened Gold,NA,neat,NA

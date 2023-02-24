@@ -88,4 +88,10 @@ resulted in 7 components.
 
 ## Spectral clustering analysis
 
+<img src="outputs/plot_kmeans_aic_absolute.png" width=100% heigth=100%>
+
+<img src="outputs/plot_kmeans_aic_relative.png" width=100% heigth=100%>
+
+<img src="outputs/plot_kmeans_clusters.png" width=100% heigth=100%>
+
 ## Contingency analysis

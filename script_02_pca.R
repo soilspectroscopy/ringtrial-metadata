@@ -52,6 +52,11 @@ pca.variance <- tidy(pca.model, id = "pca", type = "variance")
 pca.variance %>%
   distinct(terms)
 
+pca.variance <- pca.variance %>%
+  filter(component <= 7)
+
+qsave(pca.variance, paste0(mnt.dir, "metadata/pca_variance.qs"))
+
 pca.percents <- pca.variance %>%
   filter(terms == "percent variance") %>%
   filter(component <= 2) %>%
@@ -84,6 +89,12 @@ pca.loadings.train <- tidy(pca.model, id = "pca", type = "coef") %>%
   select(-id) %>%
   filter(component %in% names(pca.scores.train)) %>%
   pivot_wider(values_from = "value", names_from = "component")
+
+qsave(pca.loadings.train, paste0(mnt.dir, "metadata/pca_loadings.qs"))
+
+pca.normalization.train <- tidy(pca.model, id = "normalization", type = "coef")
+
+qsave(pca.normalization.train, paste0(mnt.dir, "metadata/pca_normalization.qs"))
 
 p.loading <- pca.loadings.train %>%
   pivot_longer(-terms, names_to = "PC", values_to = "loading") %>%

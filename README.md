@@ -4,10 +4,10 @@ Soil spectroscopy ring trial
 -   <a href="#overview" id="toc-overview">Overview</a>
 -   <a href="#metadata" id="toc-metadata">Metadata</a>
 -   <a href="#pooled-pca" id="toc-pooled-pca">Pooled PCA</a>
--   <a href="#spectral-clustering-analysis"
-    id="toc-spectral-clustering-analysis">Spectral clustering analysis</a>
--   <a href="#contingency-analysis"
-    id="toc-contingency-analysis">Contingency analysis</a>
+-   <a href="#clustering-analysis" id="toc-clustering-analysis">Clustering
+    analysis</a>
+-   <a href="#correspondence-analysis"
+    id="toc-correspondence-analysis">Correspondence analysis</a>
 
 ## Overview
 
@@ -86,7 +86,7 @@ resulted in 7 components.
 
 <img src="outputs/plot_pca_loadings_pooled_raw.png" width=100% heigth=100%>
 
-## Spectral clustering analysis
+## Clustering analysis
 
 <img src="outputs/plot_kmeans_aic_absolute.png" width=100% heigth=100%>
 
@@ -94,4 +94,33 @@ resulted in 7 components.
 
 <img src="outputs/plot_kmeans_clusters.png" width=100% heigth=100%>
 
-## Contingency analysis
+Proportion of instrument samples (%) belonging to spectral clusters
+
+| instrument | majority |      C1 |      C2 |      C3 |     C4 |
+|-----------:|:---------|--------:|--------:|--------:|-------:|
+|          1 | C4       |   0.000 |   1.429 |   1.429 | 97.143 |
+|          2 | C3       |  11.429 |   0.000 |  88.571 |  0.000 |
+|          3 | C4       |   0.000 |   1.429 |   2.857 | 95.714 |
+|          4 | C2       |   0.000 |  71.429 |   0.000 | 28.571 |
+|          5 | C2       |   0.000 |  55.714 |   0.000 | 44.286 |
+|          6 | C3       |   4.286 |   0.000 |  95.714 |  0.000 |
+|          7 | C3       |   7.143 |   0.000 |  92.857 |  0.000 |
+|          8 | C3       |   0.000 |   0.000 | 100.000 |  0.000 |
+|          9 | C2       |   0.000 | 100.000 |   0.000 |  0.000 |
+|         10 | C4       |   0.000 |   1.429 |   0.000 | 98.571 |
+|         11 | C1       | 100.000 |   0.000 |   0.000 |  0.000 |
+|         12 | C2       |   0.000 |  67.143 |   1.429 | 31.429 |
+|         13 | C2       |   0.000 | 100.000 |   0.000 |  0.000 |
+|         14 | C4       |   0.000 |  34.286 |   0.000 | 65.714 |
+|         15 | C3       |   7.143 |   0.000 |  92.857 |  0.000 |
+|         16 | C4       |   0.000 |   1.429 |   1.429 | 97.143 |
+|         17 | C2       |   0.000 |  97.143 |   0.000 |  2.857 |
+|         18 | C4       |   0.000 |   0.000 |   2.857 | 97.143 |
+|         19 | C4       |   0.000 |   4.286 |   0.000 | 95.714 |
+|         20 | C3       |   2.857 |   0.000 |  97.143 |  0.000 |
+
+<img src="outputs/plot_kmeans_clusters_majority.png" width=100% heigth=100%>
+
+<img src="outputs/plot_spectral_variation_clusters.png" width=100% heigth=100%>
+
+## Correspondence analysis

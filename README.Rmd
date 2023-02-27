@@ -57,7 +57,7 @@ Pooled PCA was performend to retain 99.5% of the original variance. This resulte
 
 <img src="outputs/plot_pca_loadings_pooled_raw.png" width=100% heigth=100%>
 
-## Spectral clustering analysis
+## Clustering analysis
 
 <img src="outputs/plot_kmeans_aic_absolute.png" width=100% heigth=100%>
 
@@ -65,6 +65,17 @@ Pooled PCA was performend to retain 99.5% of the original variance. This resulte
 
 <img src="outputs/plot_kmeans_clusters.png" width=100% heigth=100%>
 
+Proportion of instrument samples (%) belonging to spectral clusters
 
-## Contingency analysis
+```{r proportion, message=F, warning=F, echo=F}
+read_csv("outputs/proportions_clustering.csv") %>%
+  rename(instrument = organization) %>%
+  knitr::kable(digits = 3)
+```
+
+<img src="outputs/plot_kmeans_clusters_majority.png" width=100% heigth=100%>
+
+<img src="outputs/plot_spectral_variation_clusters.png" width=100% heigth=100%>
+
+## Correspondence analysis
 

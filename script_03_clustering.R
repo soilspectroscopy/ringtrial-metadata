@@ -139,6 +139,8 @@ scores <- scores %>%
 
 scores
 
+qsave(scores, paste0(dir.metadata, "pca_majority.qs"))
+
 # PCA summary
 
 pca.variance <- qread(paste0(mnt.dir, "metadata/pca_variance.qs"))

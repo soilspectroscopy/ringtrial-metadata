@@ -124,3 +124,50 @@ Proportion of instrument samples (%) belonging to spectral clusters
 <img src="outputs/plot_spectral_variation_clusters.png" width=100% heigth=100%>
 
 ## Correspondence analysis
+
+Correspondence analysis is used to explore relationships among
+qualitative variables. Like principal component analysis, it provides a
+solution for summarizing and visualizing data set in two-dimension
+plots. It is based on the frequencies formed by two categorical data,
+i.e. a contingency table. Using an asymmetrical biplot, one can plot
+metadata information (columns) over the cluster space (rows) in order to
+understand the associations between the categorical levels. For this,
+rows are represented in principal coordinates and columns are projected
+with standard coordinates (row-metric-preserving).
+
+The chi-square test of independence is used to analyze the frequency
+table (i.e. contingency table) formed by two categorical variables. The
+chi-square test evaluates whether there is a significant association
+between the categories of the two variables:  
+- Null hypothesis (H0): the row and the column variables of the
+contingency table are independent.  
+- Alternative hypothesis (H1): row and column variables are dependent.
+
+We accept H1 when p-value is below alpha (probability error of 1 or 5%)
+
+Example of contingency table using manufacturer info.
+
+|     | Agilent | Bruker | Perkin-Elmer | Thermo-Fisher |
+|:----|--------:|-------:|-------------:|--------------:|
+| C1  |       0 |     70 |            0 |             0 |
+| C2  |      70 |     70 |          140 |           140 |
+| C3  |       0 |    420 |            0 |             0 |
+| C4  |       0 |    350 |            0 |            70 |
+
+<img src="outputs/plot_ca_manufacturer.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_model.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_beamsplitter.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_detector.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_mirror_material.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_accessory.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_background.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_sample_presentation.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_purged.png" width=100% heigth=100%>

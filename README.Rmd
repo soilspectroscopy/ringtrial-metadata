@@ -11,6 +11,7 @@ editor_options:
   
 ```{r setup, include=FALSE}
 library("tidyverse")
+library("qs")
 mnt.dir <- "~/projects/mnt-ringtrial/"
 ```
 
@@ -79,3 +80,47 @@ read_csv("outputs/proportions_clustering.csv") %>%
 
 ## Correspondence analysis
 
+Correspondence analysis is used to explore relationships among qualitative variables. Like principal component analysis, it provides a solution for summarizing and visualizing data set in two-dimension plots. It is based on the frequencies formed by two categorical data, i.e. a contingency table. Using an asymmetrical biplot, one can plot metadata information (columns) over the cluster space (rows) in order to understand the associations between the categorical levels. For this, rows are represented in principal coordinates and columns are projected with standard coordinates (row-metric-preserving).
+
+The chi-square test of independence is used to analyze the frequency table (i.e. contingency table) formed by two categorical variables. The chi-square test evaluates whether there is a significant association between the categories of the two variables:  
+- Null hypothesis (H0): the row and the column variables of the contingency table are independent.  
+- Alternative hypothesis (H1): row and column variables are dependent.  
+
+We accept H1 when p-value is below alpha (probability error of 1 or 5%)
+
+Example of contingency table using manufacturer info.
+```{r contigency_table, message=F, warning=F, echo=F}
+scores <- qread(paste0(mnt.dir, "metadata/pca_majority.qs"))
+
+metadata <- read_csv("outputs/instruments_metadata_clean.csv")
+
+metadata <- metadata %>%
+  rename(organization = code) %>%
+  mutate(organization = as.factor(organization))
+
+ca.data <- left_join(scores, metadata, by = "organization") %>%
+  mutate(cluster = paste0("C", cluster)) %>%
+  mutate(majority = paste0("C", majority))
+
+ct.manufacturer <- table(ca.data$majority, ca.data$manufacturer)
+
+knitr::kable(ct.manufacturer)
+```
+
+<img src="outputs/plot_ca_manufacturer.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_model.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_beamsplitter.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_detector.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_mirror_material.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_accessory.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_background.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_sample_presentation.png" width=100% heigth=100%>
+
+<img src="outputs/plot_ca_purged.png" width=100% heigth=100%>

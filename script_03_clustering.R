@@ -46,7 +46,7 @@ AIC.plot.data <- tibble(cluster = n.clusters,
   mutate(relative = (difference/lag)); AIC.plot.data
 
 p.aic <- ggplot(AIC.plot.data, aes(x = cluster, y = AIC)) +
-  geom_line(size = 0.5) + geom_point(size = 3) +
+  geom_line(linewidth = 0.5) + geom_point(size = 3) +
   geom_hline(yintercept = 250642, linetype = "dashed") +
   scale_x_continuous(limits = c(1,20), breaks = 1:20) +
   labs(x = "Number of clusters", y = "Akaike information criterion",
@@ -138,6 +138,20 @@ scores <- scores %>%
   mutate(majority = as.integer(gsub("C", "", majority)))
 
 scores
+
+# Clusters were slightly adjusted based on the overall performance
+# from the transfer mode approach, as a few instruments were more
+# affected by preprocessing and spectral standardization than others
+# and have fallen into separate groups not sharing similar performance
+# characteristics.
+
+scores <- scores %>%
+  mutate(majority = case_when(organization == 14 ~ 2,
+                              organization == 17 ~ 4,
+                              TRUE ~ as.numeric(majority)))
+scores %>%
+  group_by(organization) %>%
+  summarise(majority = first(majority))
 
 qsave(scores, paste0(dir.metadata, "pca_majority.qs"))
 

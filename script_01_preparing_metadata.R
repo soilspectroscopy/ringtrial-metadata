@@ -19,7 +19,8 @@ metadata <- metadata.raw %>%
   select(code, manufacturer, model, year_built,
          beamsplitter, detector, mirror_material, accessory, background,
          sample_presentation, neat_mulled, Purged) %>%
-  rename(purged = Purged)
+  rename(purged = Purged) %>%
+  filter(row_number() <= 20)
 
 ## Levels of manufacturer
 
@@ -116,18 +117,16 @@ metadata %>%
 
 ## Levels of accessory
 
-names(metadata)
-
 metadata %>%
   distinct(accessory)
 
 metadata <- metadata %>%
   mutate(accessory_clean = case_when(grepl("Bruker Alpha QuickSnap", accessory) ~ "Bruker QuickSnap",
-                                     grepl("Bruker Front-facing accessory", accessory) ~ "Bruker QuickSnap",
+                                     grepl("Bruker Front-facing accessory", accessory) ~ "Bruker Front-Facing",
                                      grepl("Bruker Alpha II QuickSnap DRIFT", accessory) ~ "Bruker QuickSnap",
                                      grepl("HTS-XT", accessory) ~ "Bruker HTS-XT",
                                      grepl("Pike X, Y Autosampler", accessory) ~ "Pike X,Y Autosampler",
-                                     grepl("Collector II Diffuse Reflectance Accessory", accessory) ~ "Termo Fisher Collector II",
+                                     grepl("Collector II Diffuse Reflectance Accessory", accessory) ~ "Termo-Fisher Collector II",
                                      grepl("DRIFT", accessory) ~ "Perkin Elmer DRIFT",
                                      TRUE ~ accessory),
          .after = accessory) %>%
@@ -160,7 +159,7 @@ metadata %>%
   distinct(sample_presentation)
 
 metadata <- metadata %>%
-  mutate(sample_presentation_clean = case_when(grepl("Pressed / levelled", sample_presentation) ~ "Pressed-Levelled",
+  mutate(sample_presentation_clean = case_when(grepl("Pressed / levelled|Pressed/levelled", sample_presentation) ~ "Pressed-Levelled",
                                       TRUE ~ sample_presentation),
          .after = sample_presentation)
 
@@ -201,7 +200,8 @@ metadata %>%
 
 ## Export results
 
-names(metadata.original)
+names(metadata.raw)
+
 metadata.original <- metadata %>%
   filter(!is.na(code)) %>%
   select(code, !contains("clean"))

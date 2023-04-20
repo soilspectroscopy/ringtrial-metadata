@@ -1,5 +1,5 @@
 code,manufacturer,model,year_built,beamsplitter,detector,mirror_material,accessory,background,sample_presentation,neat_mulled,purged
-1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+1,Bruker,Tensor II,NA,KBr,NA,NA,Bruker HTS-XT,Roughened Gold,Pressed/levelled,NA,NA
 2,Bruker,Alpha II,2020,KBr,DLaTGS,Gold,Bruker Alpha QuickSnap,Roughened Gold,Levelled,neat,no
 3,Bruker,Vertex 70,2013,KBr,RT-DLaTGS,not known,Bruker HTS-XT,Roughened Gold,Levelled,neat,NA
 4,PerkinElmer,Spectrum 100,2010,OptKBr (PE trade name for a Ge-coated KBr beam splitter),MIR TGS (PE trade name for a DTGS detector),"Not gold, but not sure if aluminum",Pike AutoDiff,KBr,Levelled,NA,NA
@@ -18,4 +18,4 @@ code,manufacturer,model,year_built,beamsplitter,detector,mirror_material,accesso
 17,Bruker,Invenio-R,2022,KBr,DLaTGS,Gold,Bruker HTS-XT,Roughened Gold,Pressed,NA,NA
 18,Bruker,Invenio-S,2020,KBr,MCT,Gold,Bruker HTS-XT,Roughened Gold,Pressed,NA,yes
 19,Bruker,Tensor II,2016,KBr,DLaTGS,Gold,HTS-XT,Roughened gold,Levelled,NA,yes
-20,Bruker,Alpha,NA,ZnSe or HeNe or KBr?,RT-DLaTGS ZnSe,NA,NA,Roughened Gold,NA,neat,NA
+20,Bruker,Alpha I,2015,ZnSe,RT-DLaTGS ZnSe,Gold,Bruker Alpha QuickSnap,Roughened Gold,Levelled,neat,NA

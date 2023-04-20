@@ -37,7 +37,8 @@ all.mirspectra.raw <- all.mirspectra.raw %>%
   mutate(organization = recode(organization, !!!new_codes)) %>%
   mutate(organization = factor(organization, levels = as.character(new_codes)))
 
-all.mirspectra.raw
+all.mirspectra.raw %>%
+  distinct(organization)
 
 pca.model <- all.mirspectra.raw %>%
   recipe() %>%

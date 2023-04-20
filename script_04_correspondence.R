@@ -41,8 +41,6 @@ ca.data <- left_join(scores, metadata, by = "organization") %>%
 names(ca.data)
 
 ## All info
-
-names(ca.data)
 names(metadata)
 
 # All metadata info
@@ -62,7 +60,7 @@ apply(ca.data[,target.metadata], 2, function(x) length(table(x)))
 
 contingency.tables.list <- list()
 
-i=1
+i=6
 for(i in 1:length(target.metadata)){
   
   # contingency table
@@ -131,17 +129,22 @@ for(i in 1:length(target.metadata)){
   plot.label <- paste0("χ² = ", plot.chi.value, ", p", plot.p.value)
   
   p.ca.assymetrical <- ggplot(plot.row.principal, aes(x = PC1, y = PC2, color = type, label = label)) +
-    geom_point(show.legend = T) + coord_cartesian(xlim = c(-3,4), ylim = c(-3,4)) +
+    geom_point(show.legend = T) +
+    coord_cartesian(xlim = c(-5,5), ylim = c(-5,5)) +
     geom_vline(xintercept = 0, lty = "dashed", alpha = .5) +
     geom_hline(yintercept = 0, lty = "dashed", alpha = .5) +
-    geom_label_repel(show.legend = F, segment.alpha = .5, point.padding = unit(5, "points")) +
+    geom_label_repel(show.legend = F, segment.alpha = .5, point.padding = unit(5, "points"),
+                     max.overlaps = Inf) +
     annotate("text", x = Inf, y = Inf, label = plot.label, vjust=2, hjust=1.1) +
-    labs(x = paste0("PC1 (", pca.percents[1], "%)"),
+    labs(title = paste0("Correspondence analysis with ",
+                        gsub("_", " ", selected.metadata),
+                        ": row-principal, column-standard"),
+         x = paste0("PC1 (", pca.percents[1], "%)"),
          y = paste0("PC2 (", pca.percents[2], "%)"),
          color = "") +
     theme_light() + theme(legend.position = "bottom")
   
-  ggsave(paste0(dir.output, paste0("plot_paper_ca_", selected.metadata, ".png")),
+  ggsave(paste0(dir.output, paste0("plot_ca_", selected.metadata, ".png")),
          p.ca.assymetrical, dpi = 300, width = 8, height = 6,
          units = "in", scale = 1)
   
@@ -150,13 +153,3 @@ for(i in 1:length(target.metadata)){
 contingency.tables.list
 
 qsave(contingency.tables.list, "outputs/contingency_tables.qs")
-
-target.metadata
-clipr::write_clip(contingency.tables.list[[1]])
-clipr::write_clip(contingency.tables.list[[2]])
-clipr::write_clip(contingency.tables.list[[3]])
-clipr::write_clip(contingency.tables.list[[4]])
-clipr::write_clip(contingency.tables.list[[5]])
-clipr::write_clip(contingency.tables.list[[6]])
-clipr::write_clip(contingency.tables.list[[7]])
-clipr::write_clip(contingency.tables.list[[8]])

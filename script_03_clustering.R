@@ -129,6 +129,16 @@ proportions <- scores %>%
   mutate(majority = names(.[2:5])[max.col(.[2:5])]) %>%
   select(organization, majority, C1, C2, C3, C4)
 
+# Clusters were slightly adjusted based on the overall performance
+# from the transfer mode approach, as a few instruments were more
+# affected by preprocessing and spectral standardization than others
+# and have fallen into separate groups not sharing similar performance
+# characteristics.
+proportions <- proportions %>%
+  mutate(majority = case_when(organization == 14 ~ "C2",
+                              organization == 17 ~ "C4",
+                              TRUE ~ as.character(majority)))
+  
 write_csv(proportions, "outputs/proportions_clustering.csv")
 
 scores <- scores %>%
@@ -139,16 +149,6 @@ scores <- scores %>%
 
 scores
 
-# Clusters were slightly adjusted based on the overall performance
-# from the transfer mode approach, as a few instruments were more
-# affected by preprocessing and spectral standardization than others
-# and have fallen into separate groups not sharing similar performance
-# characteristics.
-
-scores <- scores %>%
-  mutate(majority = case_when(organization == 14 ~ 2,
-                              organization == 17 ~ 4,
-                              TRUE ~ as.numeric(majority)))
 scores %>%
   group_by(organization) %>%
   summarise(majority = first(majority))

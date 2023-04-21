@@ -60,7 +60,7 @@ apply(ca.data[,target.metadata], 2, function(x) length(table(x)))
 
 contingency.tables.list <- list()
 
-i=6
+i=1
 for(i in 1:length(target.metadata)){
   
   # contingency table

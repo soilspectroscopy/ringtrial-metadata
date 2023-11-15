@@ -90,7 +90,7 @@ metadata %>%
 metadata <- metadata %>%
   mutate(detector_clean = case_when(grepl("DLaTGS", detector) ~ "DTGS",
                                     grepl("RT-DLaTGS", detector) ~ "DTGS",
-                                    grepl("MIR TGS", detector) ~ "DTGS",
+                                    grepl("MIR DTGS", detector) ~ "DTGS",
                                     grepl("DGTS", detector) ~ "DTGS",
                                     TRUE ~ detector),
          .after = detector) %>%
@@ -121,12 +121,12 @@ metadata %>%
   distinct(accessory)
 
 metadata <- metadata %>%
-  mutate(accessory_clean = case_when(grepl("Bruker Alpha QuickSnap", accessory) ~ "Bruker QuickSnap",
-                                     grepl("Bruker Front-facing accessory", accessory) ~ "Bruker Front-Facing",
-                                     grepl("Bruker Alpha II QuickSnap DRIFT", accessory) ~ "Bruker QuickSnap",
+  mutate(accessory_clean = case_when(grepl("Bruker Alpha QuickSnap", accessory) ~ "Bruker QuickSnap DRIFT",
+                                     grepl("Bruker Front-facing accessory", accessory) ~ "Bruker Front Reflectance",
+                                     grepl("Bruker Alpha II QuickSnap DRIFT", accessory) ~ "Bruker QuickSnap DRIFT",
                                      grepl("HTS-XT", accessory) ~ "Bruker HTS-XT",
                                      grepl("Pike X, Y Autosampler", accessory) ~ "Pike X,Y Autosampler",
-                                     grepl("Collector II Diffuse Reflectance Accessory", accessory) ~ "Termo-Fisher Collector II",
+                                     grepl("Collector II Diffuse Reflectance Accessory", accessory) ~ "Thermo-Fisher Collector II",
                                      grepl("DRIFT", accessory) ~ "Perkin Elmer DRIFT",
                                      TRUE ~ accessory),
          .after = accessory) %>%
